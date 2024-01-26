@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Nho Khô</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+<div class="login">
+	<h1>Dự Đoán Nho Khô</h1>
+    <form class = "form" action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Area" placeholder="Diện tích"  />
+      <input type="text" name="MajorAxisLength" placeholder="Chiều dài trục chính"  />
+		  <input type="text" name="MinorAxisLength" placeholder="Chiều dài trục nhỏ" />
+		  <input type="text" name="Eccentricity" placeholder="Độ lệch giữa hình elip tương đương nho khô"  />
+      <input type="text" name="ConvexArea" placeholder="Số pixel của điểm lồi nhỏ nhất"  />
+      <input type="text" name="Extent" placeholder="Mức độ chêch lệch"  />
+      <input type="text" name="Perimeter" placeholder="Chu vi của nho"  />
+
+      <button type="submit" class="btn">Dự đoán</button>
+    </form>
+   <br>
+   <br>
+   <p>{{ prediction_text }}</p>
+ </div>
+</body>
+</html>
